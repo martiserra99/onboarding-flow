@@ -1,6 +1,6 @@
 import type { FieldValues, DefaultValues, Resolver } from "react-hook-form";
 import type { MotionProps } from "motion/react";
-import type { OnNext, OnBack } from "@formity/react";
+import type { Next, Back } from "@formity/react";
 import type { FormStatus } from "../../types/status";
 
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
@@ -31,8 +31,8 @@ interface FormProps<T extends FieldValues> {
     back: string | null;
     next: string;
   };
-  onBack: OnBack<T>;
-  onNext: OnNext<T>;
+  onBack: Back<T>;
+  onNext: Next<T>;
   status: FormStatus;
   onStatusChange: (status: FormStatus) => void;
 }
@@ -54,7 +54,7 @@ export function Form<T extends FieldValues>({
 
   useEffect(() => move(status.move), [status.move]);
 
-  const handleBack = useCallback<OnBack<T>>(
+  const handleBack = useCallback<Back<T>>(
     (fields) => {
       onStatusChange({ type: "form", move: "back", submitting: false });
       setFields(fields);
@@ -62,7 +62,7 @@ export function Form<T extends FieldValues>({
     [onStatusChange, setFields],
   );
 
-  const handleNext = useCallback<OnNext<T>>(
+  const handleNext = useCallback<Next<T>>(
     (fields) => {
       onStatusChange({ type: "form", move: "next", submitting: false });
       setFields(fields);

@@ -92,7 +92,7 @@ export const flow: Flow<Schema> = [
         level: ["", []],
         hours: ["", []],
       }),
-      render: ({ fields, params, onNext, onBack }) => ({
+      render: ({ fields, params, next, back }) => ({
         progress: {
           numberSteps: 3,
           currentStep: 1,
@@ -161,8 +161,8 @@ export const flow: Flow<Schema> = [
               back: null,
               next: "Continue",
             }}
-            onBack={onBack}
-            onNext={onNext}
+            onBack={back}
+            onNext={next}
             status={params.status}
             onStatusChange={params.onStatusChange}
           />
@@ -188,7 +188,7 @@ export const flow: Flow<Schema> = [
                   technology: ["", []],
                   motivation: ["", []],
                 }),
-                render: ({ fields, params, onNext, onBack }) => ({
+                render: ({ fields, params, next, back }) => ({
                   progress: {
                     numberSteps: 3,
                     currentStep: 2,
@@ -266,8 +266,8 @@ export const flow: Flow<Schema> = [
                         back: "Back",
                         next: "Continue",
                       }}
-                      onBack={onBack}
-                      onNext={onNext}
+                      onBack={back}
+                      onNext={next}
                       status={params.status}
                       onStatusChange={params.onStatusChange}
                     />
@@ -286,7 +286,7 @@ export const flow: Flow<Schema> = [
                   technology: ["", []],
                   motivation: ["", []],
                 }),
-                render: ({ fields, params, onNext, onBack }) => ({
+                render: ({ fields, params, next, back }) => ({
                   progress: {
                     numberSteps: 3,
                     currentStep: 2,
@@ -364,8 +364,8 @@ export const flow: Flow<Schema> = [
                         back: "Back",
                         next: "Continue",
                       }}
-                      onBack={onBack}
-                      onNext={onNext}
+                      onBack={back}
+                      onNext={next}
                       status={params.status}
                       onStatusChange={params.onStatusChange}
                     />
@@ -383,7 +383,7 @@ export const flow: Flow<Schema> = [
               technology: ["", []],
               motivation: ["", []],
             }),
-            render: ({ fields, params, onNext, onBack }) => ({
+            render: ({ fields, params, next, back }) => ({
               progress: {
                 numberSteps: 3,
                 currentStep: 2,
@@ -449,8 +449,8 @@ export const flow: Flow<Schema> = [
                     back: "Back",
                     next: "Continue",
                   }}
-                  onBack={onBack}
-                  onNext={onNext}
+                  onBack={back}
+                  onNext={next}
                   status={params.status}
                   onStatusChange={params.onStatusChange}
                 />
@@ -468,7 +468,7 @@ export const flow: Flow<Schema> = [
         environment: ["", []],
         reminders: [false, []],
       }),
-      render: ({ fields, params, onNext, onBack }) => ({
+      render: ({ fields, params, next, back }) => ({
         progress: {
           numberSteps: 3,
           currentStep: 3,
@@ -519,8 +519,8 @@ export const flow: Flow<Schema> = [
               back: "Back",
               next: "Build my path",
             }}
-            onBack={onBack}
-            onNext={onNext}
+            onBack={back}
+            onNext={next}
             status={params.status}
             onStatusChange={params.onStatusChange}
           />
