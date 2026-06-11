@@ -31,16 +31,16 @@ interface FormProps<T extends FieldValues> {
     back: string | null;
     next: string;
   };
-  onBack: Back<T>;
-  onNext: Next<T>;
+  back: Back<T>;
+  next: Next<T>;
   status: FormStatus;
   onStatusChange: (status: FormStatus) => void;
 }
 
 export function Form<T extends FieldValues>({
   id,
-  onBack,
-  onNext,
+  back,
+  next,
   status,
   onStatusChange,
   ...props
@@ -48,8 +48,8 @@ export function Form<T extends FieldValues>({
   const [fields, setFields] = useState<T>();
 
   const move = useEffectEvent((move: FormStatus["move"]) => {
-    if (move === "next") return onNext(fields!);
-    if (move === "back") return onBack(fields!);
+    if (move === "next") return next(fields!);
+    if (move === "back") return back(fields!);
   });
 
   useEffect(() => move(status.move), [status.move]);
@@ -89,12 +89,7 @@ export function Form<T extends FieldValues>({
         {...motionProps(status)}
         className="h-full"
       >
-        <View
-          onBack={handleBack}
-          onNext={handleNext}
-          status={status}
-          {...props}
-        />
+        <View back={handleBack} next={handleNext} status={status} {...props} />
       </motion.div>
     </AnimatePresence>
   );
@@ -108,8 +103,8 @@ function View<T extends FieldValues>({
   message,
   content,
   buttons,
-  onBack,
-  onNext,
+  back,
+  next,
   status,
 }: Omit<FormProps<T>, "id" | "onStatusChange">) {
   const form = useForm({ defaultValues, resolver, mode: "onChange" });
@@ -117,7 +112,7 @@ function View<T extends FieldValues>({
     <form
       noValidate
       autoComplete="off"
-      onSubmit={form.handleSubmit(onNext)}
+      onSubmit={form.handleSubmit(next)}
       className="@container flex h-full flex-1 flex-col overflow-hidden"
     >
       <FormProvider {...form}>
@@ -142,7 +137,7 @@ function View<T extends FieldValues>({
             {buttons.back && (
               <button
                 type="button"
-                onClick={() => onBack(form.getValues())}
+                onClick={() => back(form.getValues())}
                 disabled={status.submitting}
                 className="inline-flex items-center gap-2 rounded-sm text-sm font-medium text-gray-400 transition-colors hover:text-gray-700 focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:text-gray-400"
               >

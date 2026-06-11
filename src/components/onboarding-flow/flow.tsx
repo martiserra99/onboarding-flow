@@ -161,8 +161,8 @@ export const flow: Flow<Schema> = [
               back: null,
               next: "Continue",
             }}
-            onBack={back}
-            onNext={next}
+            back={back}
+            next={next}
             status={params.status}
             onStatusChange={params.onStatusChange}
           />
@@ -266,8 +266,8 @@ export const flow: Flow<Schema> = [
                         back: "Back",
                         next: "Continue",
                       }}
-                      onBack={back}
-                      onNext={next}
+                      back={back}
+                      next={next}
                       status={params.status}
                       onStatusChange={params.onStatusChange}
                     />
@@ -364,8 +364,8 @@ export const flow: Flow<Schema> = [
                         back: "Back",
                         next: "Continue",
                       }}
-                      onBack={back}
-                      onNext={next}
+                      back={back}
+                      next={next}
                       status={params.status}
                       onStatusChange={params.onStatusChange}
                     />
@@ -449,8 +449,8 @@ export const flow: Flow<Schema> = [
                     back: "Back",
                     next: "Continue",
                   }}
-                  onBack={back}
-                  onNext={next}
+                  back={back}
+                  next={next}
                   status={params.status}
                   onStatusChange={params.onStatusChange}
                 />
@@ -519,8 +519,8 @@ export const flow: Flow<Schema> = [
               back: "Back",
               next: "Build my path",
             }}
-            onBack={back}
-            onNext={next}
+            back={back}
+            next={next}
             status={params.status}
             onStatusChange={params.onStatusChange}
           />
